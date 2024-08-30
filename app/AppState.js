@@ -29,6 +29,12 @@ class ObservableAppState extends EventEmitter {
       body: 'Rice, sausage, water, chicken hearts, pumpkin sauce, mix and eat'
     }),
   ]
+
+
+  /**@type {Note} */
+  activeNote = null
+
+
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

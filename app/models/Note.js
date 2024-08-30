@@ -5,34 +5,45 @@ export class Note {
   constructor(data) {
     this.id = generateId()
     this.title = data.title
-
-
+    this.body = data.body
+    this.date = new Date()
 
   }
 
 
   get listHTMLTemplate() {
     return /*html*/`
-        <div class="d-flex justify-content-between">
-                <h3>Note Title</h3>
-                <p>8/30/24</p>
+        <div onclick="app.NotesController.drawActiveNote()" class="fs-3 selectable p-3">
+                <h5>${this.title}</h5>
+                <p>${this.date}</p>
           </div>
-          <div class="d-flex text-start">
-            <p>
-                  1. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit, asperiores!
-                  2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque odio quas labore ipsum
-                  cupiditate
-                  explicabo?
-                  3. Lorem ipsum dolor sit amet consectetur adipisicing.
-            </p>
+          <div class="d-flex text-start selectable p-3">
+          <p>${this.body} </p>
           </div>
         </div>
           <hr>
-`
-
+          `
 
 
   }
+
+  get activeNoteHTMLTemplate() {
+    return /*html*/`
+  <h3>${this.title}</h3>
+            <p>${this.date}</p>
+            <p>Last Updated at: 12:00:00PM</p>
+            <div class="f-flex">
+              <button class="bg-danger">Delete</button>
+              <button class="bg-primary">Save Note</button>
+            </div>
+            <textarea class="w-100" rows="20" name="" id="">
+            ${this.body}
+          </textarea>
+  `
+
+
+  }
+
 
 
 

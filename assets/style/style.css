@@ -4,6 +4,10 @@ body {
   color: white;
 }
 
+.list-area {
+  cursor: pointer;
+}
+
 
 .hero-img {
   background-image: url(../img/Active-bg.png);

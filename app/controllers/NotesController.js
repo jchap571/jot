@@ -55,13 +55,18 @@ export class NotesController {
 
 
   updateNote() {
-    const textAreaElem = event.target
-    // @ts-ignore
-    const updatedBody = textAreaElem.value
+
+    const textAreaElem = document.getElementById('body')
+    // figure out how to add the inner text to the element and update it
+    console.log(textAreaElem.value)
+    // textAreaElem.innerText =
+
 
     console.log('updated body of note');
     console.log('saving note changes');
     notesService.saveNotes()
+    notesService.loadNotes()
+
 
   }
 
@@ -72,6 +77,8 @@ export class NotesController {
     console.log('deleting note')
 
     notesService.deleteNote(noteId)
+    notesService.saveNotes()
+    this.drawNotesList()
 
   }
 

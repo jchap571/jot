@@ -42,7 +42,7 @@
   <main>
     <div class="container-fluid">
       <section class="row align-items-center">
-        <div class="col-3 border border-light">
+        <div class="col-12 col-md-3 border border-light">
           <div class="d-flex fs-1">
             Jot...
           </div>
@@ -52,10 +52,10 @@
 
 
 
-        <div class="col-4 text-center mt-3 border border-light">
+        <div class=" col-12 col-md-4 text-center mt-3 border border-light">
 
           <div>
-            <span># of Notes</span>
+            <span id="countNotes()"># of Notes</span>
             <form onsubmit="app.NotesController.createNote()" type="text" action="" required>
               <input name="title" id="title" placeholder="Title of Note" type="text" minlength="2" maxlength="15">
 
@@ -109,7 +109,7 @@
 
 
         <!-- Beginning of active note section - will be made into a template -->
-        <div class="col-8 text-center mt-3 border border-light hero-img">
+        <div class=" col-12 col-md-8 text-center mt-3 border border-light hero-img">
           <div id="active-note">
             <!-- <h3>Note Title</h3>
             <p>Created on: 8/30/24</p>

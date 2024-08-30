@@ -8,6 +8,11 @@ body {
   cursor: pointer;
 }
 
+.list-item-green {
+  outline: green 2px;
+
+}
+
 
 .hero-img {
   background-image: url(../img/Active-bg.png);

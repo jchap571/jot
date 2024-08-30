@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { NotesController } from "../controllers/NotesController.js";
 import { Note } from "../models/Note.js";
 import { loadState, saveState } from "../utils/Store.js"
 
@@ -10,6 +11,7 @@ class NotesService {
     const note = AppState.activeNote
     note.body = updatedBody
     this.saveNotes()
+
 
   }
 
@@ -28,7 +30,7 @@ class NotesService {
     AppState.activeNote = foundNote
   }
 
-  saveNotes() {
+  saveNotes(noteId) {
     saveState('notes', AppState.notes)
 
   }
@@ -44,6 +46,7 @@ class NotesService {
     const noteIndex = notes.findIndex(note => note.id == noteId)
     notes.splice(noteIndex, 1)
     this.saveNotes()
+    this.loadNotes()
 
 
   }

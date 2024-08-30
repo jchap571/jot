@@ -34,16 +34,12 @@ export class NotesController {
 
   }
 
-
-
-
   setActiveNote(noteId) {
     console.log(`setting active note with id of ${noteId}`)
     notesService.setActiveNote(noteId)
     this.drawActiveNote()
 
   }
-
 
   createNote() {
     event.preventDefault()
@@ -56,6 +52,20 @@ export class NotesController {
     this.drawNotesList()
 
   }
+
+
+  updateNote() {
+    const textAreaElem = event.target
+    const updatedBody = textAreaElem.value
+
+    console.log('updated body of note');
+    console.log('saving note changes');
+    notesService.saveNotes()
+
+  }
+
+
+
 
 
 

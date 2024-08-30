@@ -5,6 +5,15 @@ import { loadState, saveState } from "../utils/Store.js"
 
 
 class NotesService {
+  updateNote(updatedBody) {
+    console.log('updating note')
+    const note = AppState.activeNote
+    note.body = updatedBody
+    this.saveNotes()
+
+  }
+
+
   createNote(noteFormData) {
     const note = AppState.notes
     const newNote = new Note(noteFormData)

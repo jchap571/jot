@@ -1,0 +1,12 @@
+/* BASIC STYLES HERE */
+body {
+  background-color: rgb(92, 59, 92);
+  color: white;
+}
+
+
+.hero-img {
+  background-image: url(../img/Active-bg.png);
+  background-position: center;
+  background-size: cover;
+}

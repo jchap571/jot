@@ -12,8 +12,8 @@ export class Note {
 
 
   get listHTMLTemplate() {
-    return /*html*/`
-        <div onclick="app.NotesController.setActiveNote(${this.id})" class="fs-3 selectable p-3">
+    return `
+        <div onclick="app.NotesController.setActiveNote('${this.id}')" class="fs-3 selectable p-3">
                 <h5>${this.title}</h5>
                 <p>${this.date}</p>
           </div>
@@ -28,7 +28,7 @@ export class Note {
   }
 
   get activeNoteHTMLTemplate() {
-    return /*html*/`
+    return `
   <h3>${this.title}</h3>
             <p>${this.date}</p>
             <p>Last Updated at: 12:00:00PM</p>

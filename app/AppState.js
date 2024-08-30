@@ -17,16 +17,16 @@ class ObservableAppState extends EventEmitter {
     }),
     new Note({
       id: generateId(),
-      title: 'Rony Pony Rice Aroni',
+      title: 'Charley Barley',
       color: '',
-      body: 'Rice, sausage, water, chicken hearts, pumpkin sauce, mix and eat'
+      body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis sunt delectus esse mollitia! Voluptas, obcaecati!'
 
     }),
     new Note({
       id: generateId(),
-      title: 'Rony Pony Rice Aroni',
+      title: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
       color: '',
-      body: 'Rice, sausage, water, chicken hearts, pumpkin sauce, mix and eat'
+      body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet illo debitis officia. Consequuntur sapiente facilis placeat aliquid vero beatae blanditiis.'
     }),
   ]
 

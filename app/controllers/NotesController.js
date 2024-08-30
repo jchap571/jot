@@ -10,7 +10,7 @@ export class NotesController {
   constructor() {
     console.log('the notes controller is loaded')
     // AppState.on('notesList', this.drawNotesList)
-    AppState.on('activeNote', this.drawActiveNote)
+    // AppState.on('activeNote', this.drawActiveNote)
     this.drawNotesList()
 
 
@@ -29,8 +29,8 @@ export class NotesController {
     // request help on how to target the right info for draw active note
     const activeNoteElem = document.getElementById('active-note')
     activeNoteElem.innerHTML = activeNoteHTML
-    console.log('drawing active note', activeNote)
-    // setHTML('active-note', Note)
+    setHTML('active-note', activeNote.activeNoteHTMLTemplate)
+    console.log('drawing active note')
 
 
   }
@@ -38,11 +38,20 @@ export class NotesController {
   setActiveNote(noteId) {
     console.log(`setting active note with id of ${noteId}`)
     notesService.setActiveNote(noteId)
-
+    this.drawActiveNote()
 
   }
 
 
+  createNote() {
+    event.preventDefault()
+    console.log('creating new note')
+    const noteForm = event.target
+    const noteFormData = getFormData(noteForm)
+    console.log('data from note form', noteFormData)
+    notesService.createNote(noteFormData)
+
+  }
 
 
 

@@ -1,4 +1,5 @@
-import { generateId } from "./utils/GenerateId.js"
+import { generateId } from "../utils/GenerateId.js"
+
 
 export class Note {
   constructor(data) {

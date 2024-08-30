@@ -4,9 +4,10 @@ import { Note } from "../models/Note.js";
 
 
 class NotesService {
-  createNote(rawNoteData) {
+  createNote(noteFormData) {
     const note = AppState.notes
-
+    const newNote = new Note(noteFormData)
+    note.push(newNote)
   }
 
 

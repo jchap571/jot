@@ -50,6 +50,8 @@ export class NotesController {
     const noteFormData = getFormData(noteForm)
     console.log('data from note form', noteFormData)
     notesService.createNote(noteFormData)
+    this.drawNotesList()
+
 
   }
 

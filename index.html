@@ -56,26 +56,27 @@
 
           <div>
             <span># of Notes</span>
-            <form type="text" action="" placeholder="Title of Note" required>
-              <input placeholder="Title of Note" type="text">
-            </form>
+            <form onsubmit="app.NotesController.createNote()" type="text" action="" placeholder="Title of Note"
+              required>
+              <input placeholder="Title of Note" type="text" minlength="2" maxlength="15">
 
-            <p>Add a jot..</p>
-            <select name="color" id="">
-              <option value="Green">
-                Green
-              </option>
-              <option value="Blue">
-                Blue
-              </option>
-              <option value="Red">
-                Red
-              </option>
-              <option value="Yellow">
-                Yellow
-              </option>
-            </select>
-            <button onclick="" class="">Create +</button>
+              <p>Add a jot..</p>
+              <select name="color" id="">
+                <option value="Green">
+                  Green
+                </option>
+                <option value="Blue">
+                  Blue
+                </option>
+                <option value="Red">
+                  Red
+                </option>
+                <option value="Yellow">
+                  Yellow
+                </option>
+              </select>
+              <button onclick="" class="">Create +</button>
+            </form>
             <hr>
 
 

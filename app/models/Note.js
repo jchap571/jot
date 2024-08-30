@@ -13,7 +13,7 @@ export class Note {
 
   get listHTMLTemplate() {
     return /*html*/`
-        <div onclick="app.NotesController.drawActiveNote()" class="fs-3 selectable p-3">
+        <div onclick="app.NotesController.setActiveNote(${this.id})" class="fs-3 selectable p-3">
                 <h5>${this.title}</h5>
                 <p>${this.date}</p>
           </div>

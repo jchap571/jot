@@ -11,12 +11,15 @@ export class NotesController {
     console.log('the notes controller is loaded')
     // AppState.on('notesList', this.drawNotesList)
     // AppState.on('activeNote', this.drawActiveNote)
+
     this.drawNotesList()
+
 
 
   }
 
   drawNotesList() {
+    notesService.loadNotes()
     const Notes = AppState.notes
     let notesListHTML = ''
     Notes.forEach(note => notesListHTML += note.listHTMLTemplate)
@@ -26,14 +29,13 @@ export class NotesController {
   drawActiveNote() {
     const activeNote = AppState.activeNote
     let activeNoteHTML = ''
-    // request help on how to target the right info for draw active note
-    const activeNoteElem = document.getElementById('active-note')
-    activeNoteElem.innerHTML = activeNoteHTML
     setHTML('active-note', activeNote.activeNoteHTMLTemplate)
     console.log('drawing active note')
 
-
   }
+
+
+
 
   setActiveNote(noteId) {
     console.log(`setting active note with id of ${noteId}`)
@@ -50,10 +52,13 @@ export class NotesController {
     const noteFormData = getFormData(noteForm)
     console.log('data from note form', noteFormData)
     notesService.createNote(noteFormData)
+    notesService.saveNotes()
     this.drawNotesList()
 
-
   }
+
+
+
 
 
 

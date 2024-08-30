@@ -36,8 +36,8 @@ export class Note {
               <button class="bg-danger">Delete</button>
               <button class="bg-primary">Save Note</button>
             </div>
-            <textarea class="w-100" rows="20" name="" id="">
-            ${this.body}
+            <textarea class="w-100" rows="20" name="body" id="body">
+            '${this.body}'
           </textarea>
   `
 

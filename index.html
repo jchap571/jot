@@ -56,12 +56,11 @@
 
           <div>
             <span># of Notes</span>
-            <form onsubmit="app.NotesController.createNote()" type="text" action="" placeholder="Title of Note"
-              required>
-              <input placeholder="Title of Note" type="text" minlength="2" maxlength="15">
+            <form onsubmit="app.NotesController.createNote()" type="text" action="" required>
+              <input name="title" id="title" placeholder="Title of Note" type="text" minlength="2" maxlength="15">
 
               <p>Add a jot..</p>
-              <select name="color" id="">
+              <select name="color" id="color">
                 <option value="Green">
                   Green
                 </option>

@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Note } from "../models/Note.js";
+import { loadState, saveState } from "../utils/Store.js"
 
 
 
@@ -10,9 +11,6 @@ class NotesService {
     note.push(newNote)
   }
 
-
-
-
   setActiveNote(noteId) {
     console.log('setting active note', noteId)
     const notes = AppState.notes
@@ -21,7 +19,28 @@ class NotesService {
     AppState.activeNote = foundNote
   }
 
+  saveNotes() {
+    saveState('notes', AppState.notes)
+
+  }
+
+  loadNotes() {
+    const notesFromLocalStorage = loadState('notes', [Note])
+    AppState.notes = notesFromLocalStorage
+  }
+
+
+  deleteNote() {
+    console.log('requesting to delete note')
+    window.confirm("Are you sure you want to delete this?")
+
+
+  }
+
+
 
 }
 
 export const notesService = new NotesService()
+
+

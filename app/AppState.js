@@ -12,20 +12,20 @@ class ObservableAppState extends EventEmitter {
     new Note({
       id: generateId(),
       title: 'Rony Pony Rice Aroni',
-      color: '',
+      color: 'Green',
       body: 'Rice, sausage, water, chicken hearts, pumpkin sauce, mix and eat'
     }),
     new Note({
       id: generateId(),
       title: 'Charley Barley',
-      color: '',
+      color: 'Red',
       body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis sunt delectus esse mollitia! Voluptas, obcaecati!'
 
     }),
     new Note({
       id: generateId(),
       title: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-      color: '',
+      color: 'Blue',
       body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet illo debitis officia. Consequuntur sapiente facilis placeat aliquid vero beatae blanditiis.'
     }),
   ]

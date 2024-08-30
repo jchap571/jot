@@ -56,6 +56,7 @@ export class NotesController {
 
   updateNote() {
     const textAreaElem = event.target
+    // @ts-ignore
     const updatedBody = textAreaElem.value
 
     console.log('updated body of note');
@@ -64,6 +65,15 @@ export class NotesController {
 
   }
 
+
+  deleteNote(noteId) {
+    const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)
+    if (!wantsToDelete) return
+    console.log('deleting note')
+
+    notesService.deleteNote(noteId)
+
+  }
 
 
 

@@ -39,9 +39,11 @@ class NotesService {
   }
 
 
-  deleteNote() {
-    console.log('requesting to delete note')
-    window.confirm("Are you sure you want to delete this?")
+  deleteNote(noteId) {
+    const notes = AppState.notes
+    const noteIndex = notes.findIndex(note => note.id == noteId)
+    notes.splice(noteIndex, 1)
+    this.saveNotes()
 
 
   }

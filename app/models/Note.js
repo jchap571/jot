@@ -33,8 +33,8 @@ export class Note {
             <p>${this.date}</p>
             <p>Last Updated at: 12:00:00PM</p>
             <div class="f-flex">
-              <button class="bg-danger">Delete</button>
-              <button class="bg-primary">Save Note</button>
+              <button onclick="app.NotesController.deleteNote()" class="bg-danger">Delete</button>
+              <button onclick="app.NotesController.updateNote()" class="bg-primary">Save Note</button>
             </div>
             <textarea class="w-100" rows="20" name="body" id="body">
             '${this.body}'

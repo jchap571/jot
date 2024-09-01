@@ -5,17 +5,20 @@ export class Note {
   constructor(data) {
     this.id = generateId()
     this.title = data.title
-    this.body = data.body
+    this.body = ''
     this.date = new Date()
+    this.color = data.color
 
+    this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
+    
   }
 
 
   get listHTMLTemplate() {
     return `
-        <div onclick="app.NotesController.setActiveNote('${this.id}')" class="fs-3 selectable p-3">
+        <div onclick="app.NotesController.setActiveNote('${this.id}')" class="fs-3 selectable p-3 note-border" style="border-color: ${this.color}">
                 <h5>${this.title}</h5>
-                <p>${this.date}</p>
+                <p>${this.createdAt}</p>
           </div>
           <div class="d-flex text-start selectable p-3">
           <p>${this.body} </p>
@@ -29,7 +32,7 @@ export class Note {
 
   get activeNoteHTMLTemplate() {
     return `
-  <h3>${this.title}</h3>
+  <h3 id="" class="note-border" style="border-color: ${this.color}">${this.title}</h3>
             <p>${this.date}</p>
             <p>Last Updated at: 12:00:00PM</p>
             <div class="f-flex">
@@ -37,7 +40,7 @@ export class Note {
               <button onclick="app.NotesController.updateNote()" class="bg-primary">Save Note</button>
             </div>
             <textarea class="w-100" rows="20" name="body" id="body">
-            '${this.body}'
+            ${this.body}
           </textarea>
   `
 
@@ -45,9 +48,11 @@ export class Note {
   }
 
 
+  get createdDate() {
+    return this.createdAt.toLocaleDateString()
 
 
 
 }
 
-
+}

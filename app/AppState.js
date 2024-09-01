@@ -28,6 +28,13 @@ class ObservableAppState extends EventEmitter {
       color: 'Blue',
       body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet illo debitis officia. Consequuntur sapiente facilis placeat aliquid vero beatae blanditiis.'
     }),
+    new Note({
+      id: generateId(),
+      title: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
+      color: 'Yellow',
+      body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet illo debitis officia. Consequuntur sapiente facilis placeat aliquid vero beatae blanditiis.'
+    }),
+
   ]
 
 

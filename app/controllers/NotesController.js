@@ -9,17 +9,17 @@ import { setHTML } from "../utils/Writer.js";
 export class NotesController {
   constructor() {
     console.log('the notes controller is loaded')
-    // AppState.on('notesList', this.drawNotesList)
-    // AppState.on('activeNote', this.drawActiveNote)
+    AppState.on('notes', this.drawNotesList)
+    AppState.on('activeNote', this.drawActiveNote)
 
-    this.drawNotesList()
-
+    notesService.loadNotes()
+    this.countNotes()
 
 
   }
 
   drawNotesList() {
-    notesService.loadNotes()
+    
     const Notes = AppState.notes
     let notesListHTML = ''
     Notes.forEach(note => notesListHTML += note.listHTMLTemplate)
@@ -50,36 +50,67 @@ export class NotesController {
     notesService.createNote(noteFormData)
     notesService.saveNotes()
     this.drawNotesList()
-
+    
   }
+
+
 
 
   updateNote() {
+    // this is where the html element needs to be targeted, I can find the element but can't seem to get it to set text area input to the note I'm editing
+    event.preventDefault()
 
     const textAreaElem = document.getElementById('body')
+    const noteToUpdate = AppState.activeNote.body
+   
+   
+    
+    // @ts-ignore
+    const newText = textAreaElem.value
+    
+    console.log(noteToUpdate, newText)
+    
     // figure out how to add the inner text to the element and update it
-    console.log(textAreaElem.value)
-    // textAreaElem.innerText =
-
-
-    console.log('updated body of note');
     console.log('saving note changes');
+    notesService.updateNote(newText)
     notesService.saveNotes()
-    notesService.loadNotes()
+   
+    this.drawNotesList()
+
+
+
+
+  }
+    
+    
+
+
+    
+
+  countNotes(){
+  for (let i = 0; i < AppState.notes.length; i++) {
+    let total = AppState.notes.length
+    console.log('# of notes is', total)
+    return total
+    const totalNotesElem = document.getElementById('note-count')
+    totalNotesElem.innerText = total.toString()
+  }
+
 
 
   }
 
 
-  deleteNote(noteId) {
+  deleteNote() {
     const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)
     if (!wantsToDelete) return
     console.log('deleting note')
-
+    const noteId = AppState.activeNote.id
+    console.log(noteId)
     notesService.deleteNote(noteId)
     notesService.saveNotes()
+    
     this.drawNotesList()
-
   }
 
 

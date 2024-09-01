@@ -10,8 +10,22 @@ class NotesService {
     console.log('updating note')
     const note = AppState.activeNote
     note.body = updatedBody
+    note.date = new Date()
+    const noteId = note.id
+    console.log(note)
+    // let savedNote = this.getNoteFromStorage(noteId)
+    // savedNote = note
+    AppState.emit('notesList')
+    AppState.emit('activeNote')
     this.saveNotes()
 
+// need to save the text area input into the active note, can't figure it out. also need the updated time and date to be drawn to the note
+
+  }
+
+  getNoteFromStorage(noteId){
+    let note = AppState.notes.find(note => note.id == noteId)
+    return note
 
   }
 
@@ -19,7 +33,9 @@ class NotesService {
   createNote(noteFormData) {
     const note = AppState.notes
     const newNote = new Note(noteFormData)
+    console.log(newNote)
     note.push(newNote)
+    // need to make sure when note is created, there isn't an undefined inside the body and there is a current date and time - but not raw date and time
   }
 
   setActiveNote(noteId) {
@@ -30,7 +46,7 @@ class NotesService {
     AppState.activeNote = foundNote
   }
 
-  saveNotes(noteId) {
+  saveNotes() {
     saveState('notes', AppState.notes)
 
   }
@@ -46,8 +62,8 @@ class NotesService {
     const noteIndex = notes.findIndex(note => note.id == noteId)
     notes.splice(noteIndex, 1)
     this.saveNotes()
-    this.loadNotes()
-
+    // this.loadNotes()
+    
 
   }
 

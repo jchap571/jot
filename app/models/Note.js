@@ -5,7 +5,7 @@ export class Note {
   constructor(data) {
     this.id = generateId()
     this.title = data.title
-    this.body = ''
+    this.body = data.body
     
     this.color = data.color
     // this.updatedAt = this.updatedDateFullDateAndTime

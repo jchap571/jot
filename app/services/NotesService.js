@@ -47,9 +47,12 @@ class NotesService {
   }
 
   saveNotes() {
+    console.log(AppState.notes)
     saveState('notes', AppState.notes)
 
   }
+
+
 
   loadNotes() {
     const notesFromLocalStorage = loadState('notes', [Note])

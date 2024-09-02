@@ -62,9 +62,6 @@ export class NotesController {
 
     const textAreaElem = document.getElementById('body')
     const noteToUpdate = AppState.activeNote.body
-   
-   
-    
     // @ts-ignore
     const newText = textAreaElem.value
     
@@ -73,19 +70,10 @@ export class NotesController {
     // figure out how to add the inner text to the element and update it
     console.log('saving note changes');
     notesService.updateNote(newText)
-    notesService.saveNotes()
+    // notesService.saveNotes()
    
     this.drawNotesList()
-
-
-
-
   }
-    
-    
-
-
-    
 
   countNotes(){
   for (let i = 0; i < AppState.notes.length; i++) {
@@ -95,6 +83,18 @@ export class NotesController {
     const totalNotesElem = document.getElementById('note-count')
     totalNotesElem.innerText = total.toString()
   }
+
+
+
+   
+   
+    
+    
+    
+
+
+    
+
 
 
 

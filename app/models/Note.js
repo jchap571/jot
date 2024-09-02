@@ -6,10 +6,12 @@ export class Note {
     this.id = generateId()
     this.title = data.title
     this.body = ''
-    this.date = new Date()
+    // this.date = new Intl.DateTimeFormat('en-US')
     this.color = data.color
 
     this.createdAt = data.createdAt == undefined ? new Date() : new Date(data.createdAt)
+    
+  
     
   }
 
@@ -17,8 +19,8 @@ export class Note {
   get listHTMLTemplate() {
     return `
         <div onclick="app.NotesController.setActiveNote('${this.id}')" class="fs-3 selectable p-3 note-border" style="border-color: ${this.color}">
-                <h5>${this.title}</h5>
-                <p>${this.createdAt}</p>
+                <h2 class="">${this.title}</h2>
+                <p class="fs-5">Created on: ${this.createdAt.toLocaleDateString()}</p>
           </div>
           <div class="d-flex text-start selectable p-3">
           <p>${this.body} </p>
@@ -32,9 +34,9 @@ export class Note {
 
   get activeNoteHTMLTemplate() {
     return `
-  <h3 id="" class="note-border" style="border-color: ${this.color}">${this.title}</h3>
-            <p>${this.date}</p>
-            <p>Last Updated at: 12:00:00PM</p>
+  <h2 id="" class="note-border" style="border-color: ${this.color}">${this.title}</h2>
+            <p>Created: ${this.createdAt.toLocaleDateString()}</p>
+            <p>Last Updated at: </p>
             <div class="f-flex">
               <button onclick="app.NotesController.deleteNote()" class="bg-danger">Delete</button>
               <button onclick="app.NotesController.updateNote()" class="bg-primary">Save Note</button>
@@ -49,10 +51,28 @@ export class Note {
 
 
   get createdDate() {
+    // const date = new Date()
+    // const dateFormat = new Intl.DateTimeFormat('en-US')
     return this.createdAt.toLocaleDateString()
 
 
+  }
 
-}
+  // get updatedDate(){
+  //   return this.updatedDate.toLocaleDateString() 
+  // }
+
+
+  get updatedDate() {
+    return this.updatedDate.toLocaleDateString()
+  }
+
+  get updatedDateFullDateAndTime() {
+    return this.updatedDateFullDateAndTime.toLocaleString()
+  }
+
+
+
+
 
 }

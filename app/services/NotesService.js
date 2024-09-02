@@ -10,7 +10,7 @@ class NotesService {
     console.log('updating note')
     const note = AppState.activeNote
     note.body = updatedBody
-    note.date = new Date()
+    // note.date = new Date()
     const noteId = note.id
     console.log(note)
     // let savedNote = this.getNoteFromStorage(noteId)
@@ -65,7 +65,7 @@ class NotesService {
     const noteIndex = notes.findIndex(note => note.id == noteId)
     notes.splice(noteIndex, 1)
     this.saveNotes()
-    // this.loadNotes()
+   
     
 
   }

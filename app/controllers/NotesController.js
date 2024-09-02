@@ -57,67 +57,67 @@ export class NotesController {
 
 
   updateNote() {
-    // this is where the html element needs to be targeted, I can find the element but can't seem to get it to set text area input to the note I'm editing
     event.preventDefault()
-
     const textAreaElem = document.getElementById('body')
     const noteToUpdate = AppState.activeNote.body
     // @ts-ignore
     const newText = textAreaElem.value
-    
-    console.log(noteToUpdate, newText)
-    
-    // figure out how to add the inner text to the element and update it
+    // figured out how to target the text in the textarea, and update note but it will not persist in local storage
     console.log('saving note changes');
     notesService.updateNote(newText)
     // notesService.saveNotes()
    
     this.drawNotesList()
+
   }
+  
+
+    
+    
+    
 
   countNotes(){
   for (let i = 0; i < AppState.notes.length; i++) {
     let total = AppState.notes.length
     console.log('# of notes is', total)
-    return total
     const totalNotesElem = document.getElementById('note-count')
-    totalNotesElem.innerText = total.toString()
+    totalNotesElem.innerText = '# of notes: ' + total.toString() 
   }
-
-
-
-   
-   
     
-    
-    
-
-
-    
-
-
-
-
-  }
-
-
-  deleteNote() {
-    const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)
-    if (!wantsToDelete) return
-    console.log('deleting note')
-    const noteId = AppState.activeNote.id
-    console.log(noteId)
-    notesService.deleteNote(noteId)
-    notesService.saveNotes()
-    
-    this.drawNotesList()
-  }
-
-
-
-
-
-
 
 
 }
+
+deleteNote() {
+  const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)
+  if (!wantsToDelete) return
+  console.log('deleting note')
+  const noteId = AppState.activeNote.id
+  console.log(noteId)
+  notesService.deleteNote(noteId)
+  notesService.saveNotes()
+  
+  this.drawNotesList()
+}
+   
+   
+}
+    
+    
+    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

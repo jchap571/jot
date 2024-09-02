@@ -42,7 +42,7 @@
   <main>
     <div class="container-fluid">
       <section class="row align-items-center">
-        <div class="col-12 col-md-3 border border-light">
+        <div class="col-12 col-md-3">
           <div class="d-flex fs-1">
             Jot...
           </div>
@@ -52,10 +52,10 @@
 
 
 
-        <div class=" col-12 col-md-4 text-center mt-3 border border-light">
-
-          <div>
-            <span id="note-count"># of Notes</span>
+        
+        <div class=" col-12 col-md-4 text-center mt-3 border border-dark">
+          <div  class="mt-1">
+            <span id="note-count"></span>
             <form onsubmit="app.NotesController.createNote()" type="text" action="" required>
               <input name="title" id="title" placeholder="Title of Note" type="text" minlength="2" maxlength="15">
 
@@ -73,6 +73,9 @@
                 <option value="Yellow">
                   Yellow
                 </option>
+                <option value="Black">
+                  Black
+                </option>
               </select>
               <button onclick="" class="">Create +</button>
             </form>
@@ -81,7 +84,7 @@
 
             <!-- STUB Beginning of notes list section - will be made into a template -->
 
-            <div id="list-area" class="  border border-1 border-dark">
+            <div id="list-area" class="">
               <!-- <div class="d-flex justify-content-between">
                 <h3>Note Title</h3>
                 <p>8/30/24</p>

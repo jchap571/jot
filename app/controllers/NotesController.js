@@ -50,7 +50,7 @@ export class NotesController {
     notesService.createNote(noteFormData)
     notesService.saveNotes()
     this.drawNotesList()
-    
+    this.countNotes()
   }
 
 

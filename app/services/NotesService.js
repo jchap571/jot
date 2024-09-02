@@ -10,7 +10,7 @@ class NotesService {
     console.log('updating note')
     const note = AppState.activeNote
     note.body = updatedBody
-    // note.date = new Date()
+    // note.updatedAt
     const noteId = note.id
     console.log(note)
     // let savedNote = this.getNoteFromStorage(noteId)
@@ -35,7 +35,7 @@ class NotesService {
     const newNote = new Note(noteFormData)
     console.log(newNote)
     note.push(newNote)
-    // need to make sure when note is created, there isn't an undefined inside the body and there is a current date and time - but not raw date and time
+   
   }
 
   setActiveNote(noteId) {

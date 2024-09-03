@@ -10,18 +10,17 @@ class NotesService {
     console.log('updating note')
     const note = AppState.activeNote
     note.body = updatedBody
-    // note.updatedAt
+    note.updatedAt = new Date()
     const noteId = note.id
     console.log(note)
-    // let savedNote = this.getNoteFromStorage(noteId)
-    // savedNote = note
     AppState.emit('notesList')
     AppState.emit('activeNote')
     this.saveNotes()
-
-// need to save the text area input into the active note, can't figure it out. also need the updated time and date to be drawn to the note
-
   }
+  
+
+
+
 
   getNoteFromStorage(noteId){
     let note = AppState.notes.find(note => note.id == noteId)
@@ -46,11 +45,13 @@ class NotesService {
     AppState.activeNote = foundNote
   }
 
-  saveNotes() {
-    console.log(AppState.notes)
-    saveState('notes', AppState.notes)
 
+
+  saveNotes() {
+    saveState('notes', AppState.notes)
+  
   }
+    
 
 
 

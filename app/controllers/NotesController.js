@@ -59,23 +59,19 @@ export class NotesController {
   updateNote() {
     event.preventDefault()
     const textAreaElem = document.getElementById('body')
-    const noteToUpdate = AppState.activeNote.body
     // @ts-ignore
     const newText = textAreaElem.value
-    // figured out how to target the text in the textarea, and update note but it will not persist in local storage
     console.log('saving note changes');
     notesService.updateNote(newText)
     // notesService.saveNotes()
-   
     this.drawNotesList()
+   
 
   }
+   
+
   
-
-    
-    
-    
-
+  
   countNotes(){
   for (let i = 0; i < AppState.notes.length; i++) {
     let total = AppState.notes.length
@@ -84,9 +80,14 @@ export class NotesController {
     totalNotesElem.innerText = '# of notes: ' + total.toString() 
   }
     
-
-
 }
+
+    
+    
+    
+
+
+
 
 deleteNote() {
   const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)

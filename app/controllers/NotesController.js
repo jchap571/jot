@@ -19,7 +19,7 @@ export class NotesController {
   }
 
   drawNotesList() {
-    
+
     const Notes = AppState.notes
     let notesListHTML = ''
     Notes.forEach(note => notesListHTML += note.listHTMLTemplate)
@@ -65,50 +65,51 @@ export class NotesController {
     notesService.updateNote(newText)
     // notesService.saveNotes()
     this.drawNotesList()
-   
+
 
   }
-   
 
-  
-  
-  countNotes(){
-  for (let i = 0; i < AppState.notes.length; i++) {
-    let total = AppState.notes.length
-    console.log('# of notes is', total)
-    const totalNotesElem = document.getElementById('note-count')
-    totalNotesElem.innerText = '# of notes: ' + total.toString() 
+
+
+
+  countNotes() {
+    for (let i = 0; i < AppState.notes.length; i++) {
+      let total = AppState.notes.length
+      console.log('# of notes is', total)
+      const totalNotesElem = document.getElementById('note-count')
+      totalNotesElem.innerText = '# of notes: ' + total.toString()
+    }
+
   }
-    
+
+
+
+
+
+
+
+
+  deleteNote() {
+    const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)
+    if (!wantsToDelete) return
+    console.log('deleting note')
+    const noteId = AppState.activeNote.id
+    console.log(noteId)
+    notesService.deleteNote(noteId)
+    notesService.saveNotes()
+    this.drawNotesList()
+    this.countNotes()
+  }
+
+
+
 }
 
-    
-    
-    
 
 
 
 
-deleteNote() {
-  const wantsToDelete = window.confirm(`Are you sure you want to delete this?`)
-  if (!wantsToDelete) return
-  console.log('deleting note')
-  const noteId = AppState.activeNote.id
-  console.log(noteId)
-  notesService.deleteNote(noteId)
-  notesService.saveNotes()
-  
-  this.drawNotesList()
-}
-   
-   
-}
-    
-    
-    
 
-
-    
 
 
 
